@@ -18,10 +18,10 @@ public record AvailableTimesDto(
         String nomeDoFuncionario)
 {
     public static AvailableTimesDto create(
-            @NotNull LocalTime horaDeInicio,
-            @NotNull LocalTime horaDeFim,
-            @NotNull WeekDaysEnum diaDaSemana,
-            @NotBlank String nomeDoFuncionario) {
+            @NotNull(message = "Insirs um horario de inicio válido") LocalTime horaDeInicio,
+            @NotNull(message = "Insira um horario para o fim do expediente") LocalTime horaDeFim,
+            @NotNull(message = "Insira um dia da semana válido") WeekDaysEnum diaDaSemana,
+            @NotBlank(message = "Insira o nome do funcionário") String nomeDoFuncionario) {
 
         if (horaDeFim.isBefore(horaDeInicio)) {
             throw new IllegalArgumentException("A hora de fim deve ser maior que a hora de início");
