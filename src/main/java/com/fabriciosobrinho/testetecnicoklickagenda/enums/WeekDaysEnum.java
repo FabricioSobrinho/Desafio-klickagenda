@@ -8,4 +8,13 @@ public enum WeekDaysEnum {
     QuintaFeira,
     SextaFeira,
     Sabado;
+
+    public static boolean contains(String value) {
+        for (WeekDaysEnum day : WeekDaysEnum.values()) {
+            if (day.name().equalsIgnoreCase(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
