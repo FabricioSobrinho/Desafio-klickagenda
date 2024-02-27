@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 public class AvailableTimesController {
@@ -19,7 +21,7 @@ public class AvailableTimesController {
     @Autowired
     AvailableTimeRepository availableTimeRepository;
 
-    @PostMapping("/horarios")
+    @PostMapping("/horario")
     public ResponseEntity<AvailableTimesModel> saveNewTime(@RequestBody @Valid AvailableTimesDto availableTimesDto) throws IlegalDateFormatException {
         try {
             availableTimesDto = AvailableTimesDto.create(
@@ -54,4 +56,28 @@ public class AvailableTimesController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    @PutMapping("/horario/{id_horario}")
+    public ResponseEntity<Object> UpdateTime(@PathVariable(value = "id_horario") UUID idHorario, @Valid @RequestBody AvailableTimesDto availableTimesDto) {
+        Optional<AvailableTimesModel> time = availableTimeRepository.findById(idHorario);
+
+        if (time.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Horário não encontrado");
+        }
+
+        var availableTimeModel = time.get();
+        BeanUtils.copyProperties(availableTimesDto, availableTimeModel);
+        return ResponseEntity.status(HttpStatus.OK).body(availableTimeRepository.save(availableTimeModel));
+    }
+
+    @DeleteMapping("horario/{id_horario}")
+    public ResponseEntity<Object> DeleteTime(@PathVariable(value = "id_horario") UUID idHorario) {
+        Optional<AvailableTimesModel> time = availableTimeRepository.findById(idHorario);
+
+        if (time.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Horário não encontrado");
+        }
+
+        availableTimeRepository.delete(time.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Horário deletado");
+    }
 }
