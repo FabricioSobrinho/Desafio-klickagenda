@@ -1,0 +1,26 @@
+.searchInput {
+  height: 3.8rem;
+  width: 20rem;
+
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+
+  background: #bebdbdae;
+  color: #242424;
+
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+
+  background-image: url('../assets/public/images/x.svg');
+  background-size: 1.7rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  height: 1.5rem;
+  width: 1.5rem;
+}
