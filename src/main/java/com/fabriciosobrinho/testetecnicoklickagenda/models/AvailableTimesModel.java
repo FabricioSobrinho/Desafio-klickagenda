@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_HORARIOS",uniqueConstraints = @UniqueConstraint(name = "uk_nome_dia_semana", columnNames = {"nomeDoFuncionario", "diaDaSemana"}))
+@Table(name = "TB_HORARIOS")
 public class AvailableTimesModel implements Serializable {
     private static final long serialVersionId = 1L;
     @Id
