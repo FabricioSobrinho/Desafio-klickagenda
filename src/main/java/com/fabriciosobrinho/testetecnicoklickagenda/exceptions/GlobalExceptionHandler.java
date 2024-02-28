@@ -11,21 +11,6 @@ import java.time.format.DateTimeParseException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleDataIntegrityViolation(DataIntegrityViolationException ex) {
-        String detalhe = extractDatabaseErrorMessage(ex);
-        return ResponseEntity.badRequest().body("Erro de integridade de dados: " + detalhe);
-    }
-
-    private String extractDatabaseErrorMessage(DataIntegrityViolationException ex) {
-        String message = ex.getRootCause().getMessage();
-        String[] errorMessage = message.split("Detalhe");
-
-        return errorMessage[0];
-    }
-
     @ExceptionHandler(DateTimeParseException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleDateTimeParseException(DateTimeParseException ex) {
