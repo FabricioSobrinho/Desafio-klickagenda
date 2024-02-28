@@ -1,0 +1,32 @@
+.button {
+  height: 7rem;
+  width: 20rem;
+  
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+  
+  background: #f3f3f3;
+  color: #242424;
+  
+  padding: 0.5rem;
+  font-size: 1.8rem;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.minSize {
+  height: 4.5rem;
+  width: 15rem;
+  font-size: 1.5rem;
+  
+}
+
+.blue {
+  background: #0066FF;
+}
+
+.button:hover {
+  background-color: #0557d3;
+}
