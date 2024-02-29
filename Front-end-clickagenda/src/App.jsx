@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import CreateTimePage from "./pages/CreateTimePage";
 import ShowTimesPage from "./pages/ShowTimesPage";
+import ViewEmployeeTime from "./pages/ViewEmployeeTime";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CreateTimePage />} />
           <Route path="/horarios" element={<ShowTimesPage />} />
+          <Route path="/funcionario" element={<ViewEmployeeTime />} />
         </Routes>
       </Router>
     </main>
