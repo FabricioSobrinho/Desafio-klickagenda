@@ -1,0 +1,16 @@
+.forms {
+  display: flex;
+  flex-direction: column;
+
+  justify-self: center;
+  align-items: center;
+
+  
+  height: 100%;
+  width: 100%;
+  
+  padding: 2rem;
+  gap: .6rem;
+  background-color: #f8f8f8;
+  border-radius: 1rem;
+}
