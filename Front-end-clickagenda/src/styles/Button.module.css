@@ -27,6 +27,9 @@
 .blue {
   background: #0066FF;
 }
+.red {
+  background: #FF0000;
+}
 
 .button:hover {
   background-color: #0557d3;
