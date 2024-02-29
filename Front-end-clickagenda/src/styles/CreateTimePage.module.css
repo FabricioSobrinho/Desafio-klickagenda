@@ -8,6 +8,7 @@
   width: 100vw;
 
   background-color: #f0f8ff;
+  overflow-y: hidden;
 }
 
 .leftCreateTime,
@@ -21,15 +22,49 @@
   background: #0066ff;
 }
 
+.leftCreateTime > img {
+  position: absolute;
+
+  left: -5rem;
+  bottom: 0;
+
+  width: 70%;
+  transform: rotate(-10deg);
+}
+
+.rightCreateTime > img {
+  position: absolute;
+  width: 30%;
+}
+.img1 {
+  right: 0;
+  top: 45%;
+}
+.img2 {
+  right: 40%;
+  top: 10%;
+}
+.img3 {
+  bottom: 0;
+  right: 40%;
+}
+.img4 {
+  top: 36%;
+  right: 25%;
+}
+.img5 {
+  right: 0%;
+  top: 10%;
+}
 .forms {
-    position: absolute;
-    bottom: 3rem;
-  
-    height: 75vh;
-    width: 35vw;
+  position: absolute;
+  bottom: 3rem;
 
-    z-index: 1;
+  height: 75vh;
+  width: 35vw;
 
-    box-shadow: 0px 0px 15px #0000006c;
-    border-radius: .8rem;
+  z-index: 1;
+
+  box-shadow: 0px 0px 15px #0000006c;
+  border-radius: 0.8rem;
 }
