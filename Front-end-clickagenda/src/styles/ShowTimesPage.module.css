@@ -1,0 +1,25 @@
+.topShowTimes {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100vw;
+  height: 50vh;
+  background: #0066ff;
+}
+
+.cards {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%);
+  
+  z-index: 1;
+  width: 95vw;
+}
