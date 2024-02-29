@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -14,7 +14,7 @@ body {
   display: flex;
   height: 100vh;
   overflow-x: hidden;
-  background: #f0f8ff;
   font-size: 1.6rem;
+  background: linear-gradient(to right, #f0f8ff 50%, #0066ff 50%);
+  min-height: 100%;
 }
-
