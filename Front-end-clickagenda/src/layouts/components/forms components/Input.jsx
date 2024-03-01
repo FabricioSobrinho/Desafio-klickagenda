@@ -1,7 +1,7 @@
 import InputMask from "react-input-mask";
 
 // eslint-disable-next-line react/prop-types
-function Input({ text, mask, maskChar, heightInput, widthInput, type }) {
+function Input({ text, mask, maskChar, heightInput, widthInput, type, name, handleChange, value }) {
   const inputStyle = {
     height: `${heightInput}rem`,
     width: `${widthInput}rem`,
@@ -22,6 +22,9 @@ function Input({ text, mask, maskChar, heightInput, widthInput, type }) {
       mask={mask ? mask : ""}
       maskChar={maskChar}
       placeholder={text}
+      name={name}
+      onChange={handleChange}
+      value={value}
     />
   );
 }
