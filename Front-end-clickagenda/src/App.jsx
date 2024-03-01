@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CreateTimePage />} />
           <Route path="/horarios" element={<ShowTimesPage />} />
-          <Route path="/funcionario" element={<ViewEmployeeTime />} />
+          <Route path="/funcionario/:username" element={<ViewEmployeeTime />} />
         </Routes>
       </Router>
     </main>
