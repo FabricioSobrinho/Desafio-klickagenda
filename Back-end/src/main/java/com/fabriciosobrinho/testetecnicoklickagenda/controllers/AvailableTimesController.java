@@ -12,8 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 public class AvailableTimesController {
@@ -41,9 +43,15 @@ public class AvailableTimesController {
     }
 
     @GetMapping("/horarios")
-    public ResponseEntity<List<AvailableTimesModel>> GetAllTimes() {
-        return ResponseEntity.status(HttpStatus.OK).body(availableTimeRepository.findAll());
+    public ResponseEntity<Map<String, List<AvailableTimesModel>>> GetAllTimes() {
+        List<AvailableTimesModel> allTimes = availableTimeRepository.findAll();
+
+        Map<String, List<AvailableTimesModel>> groupedByEmployee = allTimes.stream()
+                .collect(Collectors.groupingBy(AvailableTimesModel::getNomeDoFuncionario));
+
+        return ResponseEntity.status(HttpStatus.OK).body(groupedByEmployee);
     }
+
 
     @GetMapping("/funcionario/{nomeFuncionario}")
     public ResponseEntity<List<AvailableTimesModel>> getAvailableTimesByEmployeeName(@PathVariable(value = "nomeFuncionario") String nomeFuncionario) {
