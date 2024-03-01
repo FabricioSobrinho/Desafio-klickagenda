@@ -3,10 +3,17 @@ import Styles from "../../styles/Forms.module.css";
 import Input from "./forms components/Input";
 import Select from "./forms components/Select";
 
-function Forms() {
+// eslint-disable-next-line react/prop-types
+function Forms({ handleInput, handleSelect, selectValue, action }) {
   return (
-    <form className={Styles.forms}>
-      <Input text={"Nome"} widthInput={25} heightInput={4} />
+    <div className={Styles.forms}>
+      <Input
+        text={"Nome"}
+        widthInput={25}
+        heightInput={4}
+        handleChange={handleInput}
+        name="nomeDoFuncionario"
+      />
 
       <Input
         text={"Hora de inicio"}
@@ -14,19 +21,28 @@ function Forms() {
         heightInput={4}
         mask={"99:99"}
         maskChar={""}
+        handleChange={handleInput}
+        name="horaDeInicio"
       />
+
       <Input
         text={"Hora de fim"}
         widthInput={12.5}
         heightInput={4}
         mask={"99:99"}
         maskChar={""}
+        handleChange={handleInput}
+        name="horaDeFim"
       />
 
-      <Select />
+      <Select
+        name="diaDaSemana"
+        handleOnChange={handleSelect}
+        value={selectValue}
+      />
 
-      <Button text={"Adicionar horário"} color={"blue"}/>
-    </form>
+      <Button text={"Adicionar horário"} color={"blue"} handleClick={action} />
+    </div>
   );
 }
 
