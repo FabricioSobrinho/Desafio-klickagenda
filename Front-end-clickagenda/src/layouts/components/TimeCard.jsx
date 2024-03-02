@@ -1,9 +1,7 @@
 import Styles from "../../styles/TimeCard.module.css";
-import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
-import Button from "./forms components/Button";
 
 // eslint-disable-next-line react/prop-types
-function TimeCard({ enableEdit, nomeDoFuncionario, data }) {
+function TimeCard({ nomeDoFuncionario, data }) {
   return (
     <div className={Styles.mainCard}>
       <div className={Styles.title}>{nomeDoFuncionario}</div>
@@ -23,13 +21,6 @@ function TimeCard({ enableEdit, nomeDoFuncionario, data }) {
           </div>
         </div>
       ))}
-
-      {enableEdit && (
-        <div className={Styles.editTime}>
-          <Button text={<FaPencilAlt />} minSize />
-          <Button text={<FaTrashAlt />} color={"red"} minSize />
-        </div>
-      )}
     </div>
   );
 }
