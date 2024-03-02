@@ -13,3 +13,19 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.leftImg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 40%;
+}
+
+.rightImg {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 40%;
+}
