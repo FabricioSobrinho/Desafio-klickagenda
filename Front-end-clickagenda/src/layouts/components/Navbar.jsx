@@ -7,38 +7,48 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Message from "./Message";
+
 function Navbar() {
   const [employeeName, setEmployeeName] = useState(null);
-  const navigate = useNavigate(); 
+  const [message, setMessage] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleEmployeeName = (e) => {
     setEmployeeName(e.target.value);
   };
 
   const searchEmployee = async () => {
+    setMessage(null);
+
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+
     try {
       const response = await axios.get(
-        `http://localhost:8080/horarios/${employeeName}`,
+        `http://localhost:8080/funcionario/${employeeName}`,
         config
       );
 
-      console.log(response);
       navigate(`/funcionario/${employeeName}`);
     } catch (err) {
       console.log(err);
+
+      setMessage("Erro ao buscar funcionário");
     }
+
+    window.location.reload();
   };
 
   return (
     <nav className={Styles.mainNavbar}>
       <div className={Styles.leftNavbar}>
-        <Button text={"Adicionar horário"} />
-        <Button text={"Mostrar horários"} />
+        <Button text={"Adicionar horário"} linkTo="/" />
+        <Button text={"Mostrar horários"} linkTo="/horarios" />
       </div>
       <div className={Styles.rightNavbar}>
         <SearchInput
@@ -53,6 +63,7 @@ function Navbar() {
           minSize
         />
       </div>
+      {message && <Message text={message} type="error" time={2000} />}
     </nav>
   );
 }
